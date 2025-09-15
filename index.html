@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sannaan</title>
+  <meta name="description" content="Research portfolio: trustworthy ML + computational biology. Multimodal models for prevention & prognosis." />
+  <style>
+    :root{
+      --water:#0ea5b7;        /* primary water blue */
+      --water-2:#dffafb;      /* soft water background */
+      --leaf:#2fa84f;         /* leaf green */
+      --accent:#6b5cff;       /* subtle AI accent */
+      --bg:#f8fdfc;
+      --muted:#5b6b6b;
+      --card:#ffffff;
+      --maxw:980px;
+      --radius:14px;
+      --glass: rgba(255,255,255,0.72);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--water-2) 0%, #f6fbf9 40%);
+      color:#073038;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      -webkit-text-size-adjust:100%;
+    }
+
+    .wrap{
+      max-width:var(--maxw);
+      margin:32px auto;
+      padding:28px;
+    }
+
+    header.hero{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap:22px;
+      align-items:center;
+      background: linear-gradient(135deg, rgba(14,165,183,0.06), rgba(47,168,79,0.03));
+      padding:22px;
+      border-radius:var(--radius);
+      box-shadow: 0 8px 30px rgba(6,22,21,0.06);
+      border:1px solid rgba(6,22,21,0.04);
+    }
+
+    .avatar{
+      width:140px;height:140px;border-radius:20px;overflow:hidden;border:4px solid rgba(255,255,255,0.5);
+      background:linear-gradient(135deg,var(--leaf),var(--water));display:flex;align-items:center;justify-content:center;
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    h1{
+      margin:0;font-size:26px;letter-spacing:0.2px;font-weight:700;color:#03292a;
+    }
+    .tagline{
+      margin-top:6px;font-size:16px;color:var(--muted);font-style:italic
+    }
+
+    .intro-row{display:flex;gap:12px;align-items:center;margin-top:16px}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--water),var(--leaf));color:#fff;font-weight:600;font-size:13px;box-shadow:0 6px 18px rgba(47,168,79,0.12)
+    }
+
+    main{margin-top:28px;display:grid;grid-template-columns:1fr 320px;gap:20px}
+
+    /* About card */
+    .card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 6px 24px rgba(6,22,21,0.04);border:1px solid rgba(6,22,21,0.03)}
+    .section-title{font-size:15px;color:#053133;font-weight:700;margin-bottom:12px}
+    .about p{margin:0 0 12px;text-align:justify}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* Right column */
+    aside.side{position:relative}
+
+    .icons{display:flex;gap:14px;margin-top:8px}
+    .icon-btn{background:var(--glass);border-radius:10px;padding:10px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(6,22,21,0.04);cursor:pointer}
+    .icon-btn svg{width:20px;height:20px;display:block}
+    .icon-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:inherit}
+
+    /* News */
+    .news-list{display:flex;flex-direction:column;gap:12px}
+    .news-item{padding:14px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfffb);border:1px solid rgba(6,22,21,0.03)}
+    .news-item time{display:block;color:var(--muted);font-size:13px;margin-bottom:8px}
+    .news-item .title{font-weight:700;margin-bottom:6px}
+    .news-item .desc{color:#234; font-size:14px; text-align:justify; white-space:pre-wrap}
+
+    footer{margin-top:22px;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:13px}
+    .counter{display:inline-flex;align-items:center;gap:8px}
+
+    /* responsive */
+    @media (max-width:900px){
+      main{grid-template-columns:1fr}
+      header.hero{grid-template-columns:110px 1fr}
+      .avatar{width:110px;height:110px}
+      .wrap{padding:18px}
+      .pill{font-size:12px;padding:6px 10px}
+      .news-item{padding:12px}
+    }
+
+    /* little flourish */
+    .leaf-deco{position:absolute;right:-20px;top:-20px;opacity:0.18;transform:rotate(10deg)}
+
+    /* tooltip */
+    .tooltip{position:relative}
+    .tooltip .tip{position:absolute;top:-38px;left:50%;transform:translateX(-50%);background:#052e2b;color:#fff;padding:6px 10px;border-radius:8px;font-size:12px;display:none}
+    .tooltip.show .tip{display:block}
+
+    /* small improvements for accessibility */
+    a.icon-link:focus, button.icon-btn:focus { outline: 2px dashed rgba(107,92,255,0.45); outline-offset:3px }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="hero">
+      <div class="avatar" aria-hidden="true">
+        <img src="SK.jpeg" alt="Sannaan — portrait (SK.jpeg)" />
+      </div>
+      <div>
+        <h1>Sannaan</h1>
+        <div class="tagline">Tracing Tomorrow’s Health in Today’s Whispers.</div>
+
+        <div class="intro-row">
+          <div class="pill">Trustworthy ML • Multimodal Computational Biology • AI for Healthcare</div>
+        </div>
+
+        <div style="margin-top:14px;display:flex;align-items:center;gap:12px">
+          <div class="icons" role="navigation" aria-label="contact links">
+            <!-- Google Scholar (mortarboard) -->
+            <a class="icon-btn icon-link" href="#" title="Google Scholar (replace with your profile link)" aria-label="Google Scholar profile">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor"/><path d="M2 11v4l10 5 10-5v-4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+            </a>
+
+            <!-- Email: hidden under icon, copied when clicked -->
+            <button class="icon-btn tooltip" id="emailBtn" title="Copy email" aria-label="Copy email to clipboard">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5l9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="tip" id="emailTip">Copied!</span>
+            </button>
+
+            <!-- GitHub -->
+            <a class="icon-btn icon-link" href="#" title="GitHub (replace with your profile link)" aria-label="GitHub profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 .5C5.73.5.76 5.47.76 11.73c0 4.87 3.16 9 7.55 10.46.55.1.75-.24.75-.53 0-.26-.01-1-.02-1.96-3.07.67-3.72-1.48-3.72-1.48-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.24.93.1-.72.39-1.21.71-1.49-2.45-.28-5.02-1.23-5.02-5.47 0-1.21.43-2.2 1.15-2.98-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.07 1.14a10.6 10.6 0 012.79-.38c.95 0 1.9.13 2.79.38 2.12-1.44 3.06-1.14 3.06-1.14.62 1.53.24 2.67.12 2.95.72.78 1.15 1.78 1.15 2.98 0 4.25-2.58 5.19-5.04 5.46.4.35.75 1.04.75 2.1 0 1.51-.01 2.73-.01 3.1 0 .29.2.64.76.53 4.38-1.47 7.54-5.59 7.54-10.46C23.24 5.47 18.27.5 12 .5z"/></svg>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </header>
+
+    <main>
+      <section class="card about">
+        <div class="section-title">About Me</div>
+
+        <p>My research interests sit at the crossroads of trustworthy machine learning and computational biology, where I develop multimodal models for healthcare challenges that affect populations at scale, with a particular focus on prevention and prognosis for infectious diseases and viral pathologies.</p>
+
+        <p>I focus on multimodal fusion and causal approaches that integrate pathology imaging, clinical time-series, and epidemiological data to identify predictive biomarkers, remain robust under adversarial conditions, and generate explainable insights that are actionable for clinicians and public health.</p>
+
+        <p>My prior work includes publications on adversarial robustness, algorithmic fairness, and explainability in socio-technical contexts.</p>
+
+        <p>I am always open to discussions and collaborations on avant-garde research directions that push the boundaries of both science and care.</p>
+
+        <p class="muted">Résumé/CV available on request.</p>
+      </section>
+
+      <aside class="side">
+        <div class="card">
+          <div class="section-title">News & Updates</div>
+
+          <div class="news-list" id="newsList" aria-live="polite">
+            <!-- JavaScript will render up to the last 4 updates here -->
+          </div>
+
+          <div style="margin-top:12px" class="muted"></div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <footer>
+          <div class="counter">
+            <div id="counter">—</div>
+            <div class="muted">visitors</div>
+          </div>
+
+          <div class="muted">Last updated: <strong>September, 2025</strong></div>
+        </footer>
+
+        <!-- Copyright / legal -->
+        <div style="margin-top:12px;font-size:13px;color:var(--muted);">
+          <small>&copy; 2025 Sannaan. All rights reserved.</small>
+        </div>
+
+      </aside>
+
+    </main>
+
+  </div>
+
+  <script>
+    // ========== CONFIGURE THESE ==========
+    const EMAIL_ADDRESS = 'mkhan.msse24sines@student.nust.edu.pk'; 
+    const GITHUB_LINK = 'https://github.com/sk-zone'; 
+    const SCHOLAR_LINK = '#'; // ← replace with your Google Scholar profile URL
+    // CountAPI namespace/key (serverless counter). Replace namespace if you want a unique one.
+    const COUNTAPI_NAMESPACE = 'sannaan-portfolio';
+    const COUNTAPI_KEY = 'visitors';
+
+    // ====== NEWS / UPDATES: list items here, newest-first preferred ======
+    // Format: {date:'YYYY-MM', title:'Short title', text:'Short description', link:'#optional'}
+    // Note: the renderer will sort by date (descending) and show the top 4 items.
+    const allUpdates = [
+      {
+        date: '2025-09',
+        title: "Targeted Identity Re-Association Attacks",
+        text: "Our work 'The Unseen Hand: Manipulating Model Fairness and SHAP with Targeted Identity Re-Association Attacks' has been accepted into NeurIPS' 2025 Workshop."
+      },
+      {
+        date: '2025-09',
+        title: "Training-Time Explainability",
+        text: "Our collaboration with TU Dublin titled 'Training-Time Explainability for Multilingual Hate Speech Detection: Aligning Model Reasoning with Human Rationales' has been accepted into NeurIPS' 2025 workshop."
+      },
+      {
+        date: '2025-06',
+        title: "Best Paper Explanation Award",
+        text: "We have been awarded the 'Best Paper Explanation Award' for our presentation \"On the Biology of a Large Language Model\"."
+      }
+    ];
+
+    // Utility: format 'YYYY-MM' to "Mon, YYYY" (e.g., "Sep, 2025")
+    function formatMonthYear(ym){
+      // Create a date anchored to first day of month for safe parsing
+      const d = new Date(ym + '-01T00:00:00Z');
+      // get short month (en-US ensures short names like "Sep")
+      const month = d.toLocaleString('en', { month: 'short' });
+      const year = d.getUTCFullYear();
+      return `${month}, ${year}`;
+    }
+
+    // Sort descending by date and pick top 3
+    const sorted = allUpdates.slice().sort((a,b)=>{
+      return new Date(b.date + '-01') - new Date(a.date + '-01');
+    });
+    const visible = sorted.slice(0,3);
+
+    const newsList = document.getElementById('newsList');
+    if(visible.length === 0){
+      newsList.innerHTML = '<div class="muted">No updates yet. Add items in the JS <code>allUpdates</code> array.</div>';
+    } else {
+      newsList.innerHTML = visible.map(u=>{
+        const fmt = formatMonthYear(u.date);
+        // ensure safe escaping
+        const title = escapeHtml(u.title);
+        const text = escapeHtml(u.text);
+        const linkHtml = u.link ? ` <a href="${escapeHtml(u.link)}">(link)</a>` : '';
+        return `\n          <article class="news-item">\n            <time datetime="${escapeHtml(u.date)}">${fmt}</time>\n            <div class="title">${title}</div>\n            <div class="desc">${text}${linkHtml}</div>\n          </article>`;
+      }).join('');
+    }
+
+    // escape helper
+    function escapeHtml(s){return (s||'').replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;',"\"":'&quot;',"'":"&#39;"}[c]})}
+
+    // Email copy buttons
+    function copyEmailFeedback(btn){
+      if(!navigator.clipboard){
+        // fallback
+        alert('Please email: ' + EMAIL_ADDRESS);
+        return;
+      }
+      navigator.clipboard.writeText(EMAIL_ADDRESS).then(()=>{
+        btn.classList.add('show');
+        const tip = btn.querySelector('.tip');
+        if(tip){tip.textContent='Copied!'}
+        setTimeout(()=>{btn.classList.remove('show')},1600);
+      }).catch(()=>{
+        alert('Could not copy — please email: ' + EMAIL_ADDRESS);
+      });
+    }
+
+    // Attach email behavior
+    const emailBtn = document.getElementById('emailBtn');
+    emailBtn && emailBtn.addEventListener('click', ()=>copyEmailFeedback(emailBtn));
+
+    // CountAPI serverless counter (graceful fallback)
+    (function(){
+      const url = `https://api.countapi.xyz/hit/${encodeURIComponent(COUNTAPI_NAMESPACE)}/${encodeURIComponent(COUNTAPI_KEY)}`;
+      fetch(url).then(r=>r.json()).then(j=>{
+        if(j && j.value!=null){
+          document.getElementById('counter').textContent = j.value.toLocaleString();
+        }
+      }).catch(()=>{document.getElementById('counter').textContent='—';});
+    })();
+
+    // Replace profile links if configured
+    (function(){
+      const githubEls = document.querySelectorAll('a[title^="GitHub"]');
+      githubEls.forEach(a=>{ if(GITHUB_LINK && GITHUB_LINK!=='#') a.href = GITHUB_LINK; });
+      const scholarEls = document.querySelectorAll('a[title^="Google Scholar"]');
+      scholarEls.forEach(a=>{ if(SCHOLAR_LINK && SCHOLAR_LINK!=='#') a.href = SCHOLAR_LINK; });
+    })();
+
+  </script>
+</body>
+</html>
