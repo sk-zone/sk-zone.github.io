@@ -199,8 +199,8 @@
       const email = e.currentTarget.dataset.email;
 
       navigator.clipboard.writeText(email)
-        .then(() => alert('Email copied to clipboard!'))
-        .catch(() => alert('Could not copy email.'));
+        .catch(() => console.log('Could not copy email.'));
+
     });
 
     // Auto-load latest posts from blog.html
@@ -238,4 +238,5 @@
 
 </body>
 </html>
+
 
