@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -33,15 +34,21 @@
       padding: 20px;
       border-radius: var(--radius);
       color: white;
-      text-align: center;
+      display: flex;
+      flex-direction: column; /* stack h1 and nav vertically */
+      align-items: center;    /* center horizontally */
     }
     header h1 {
-      margin: 0;
+      margin: 0 0 10px 0; /* small margin below title */
       font-size: 24px;
+    }
+    header nav {
+      display: flex;
+      gap: 12px;             /* space between links */
+      justify-content: center; /* center nav links */
     }
     header nav a {
       color: white;
-      margin-right: 12px;
       text-decoration: none;
       font-weight: 600;
     }
@@ -81,40 +88,39 @@
       <nav><a href="index.html">Home</a></nav>
     </header>
 
-    <section id="posts">
-      <h2 style="color: var(--primary-purple);">Blog Posts</h2>
+```
+<section id="posts">
+  <h2 style="color: var(--primary-purple);">Blog Posts</h2>
 
-      <div class="blog-post" id="post-0">
-        <time>Nov 2025</time>
-        <strong>Our TIRA paper upgraded to Oral at NeurIPS‑W 2025</strong>
-        <p class="text">Our TIRA paper got upgraded to an Oral at NeurIPS‑W 2025.</p>
-      </div>
+  <div class="blog-post" id="post-0">
+    <time>Nov 2025</time>
+    <strong>Our TIRA paper upgraded to Oral at NeurIPS‑W 2025</strong>
+    <p class="text">Our TIRA paper got upgraded to an Oral at NeurIPS‑W 2025.</p>
+  </div>
 
-      <div class="blog-post" id="post-1">
-        <time>Sep 2025</time>
-        <strong>Training‑Time Explainability accepted at NeurIPS 2025 Workshop</strong>
-        <p class="text">Our collaboration with TU Dublin titled "Training‑Time Explainability for Multilingual Hate Speech Detection: Aligning Model Reasoning with Human Rationales" has been accepted into NeurIPS 2025 workshop.</p>
-      </div>
+  <div class="blog-post" id="post-1">
+    <time>Sep 2025</time>
+    <strong>Training‑Time Explainability accepted at NeurIPS 2025 Workshop</strong>
+    <p class="text">Our collaboration with TU Dublin titled "Training‑Time Explainability for Multilingual Hate Speech Detection: Aligning Model Reasoning with Human Rationales" has been accepted into NeurIPS 2025 workshop.</p>
+  </div>
 
-      <div class="blog-post" id="post-2">
-        <time>Sep 2025</time>
-        <strong>The Unseen Hand: Targeted Identity Re‑Association Attacks accepted at NeurIPS 2025 Workshop</strong>
-        <p class="text">Our work "The Unseen Hand: Manipulating Model Fairness and SHAP with Targeted Identity Re‑Association Attacks" has been accepted into NeurIPS 2025 Workshop.</p>
-      </div>
+  <div class="blog-post" id="post-2">
+    <time>Sep 2025</time>
+    <strong>The Unseen Hand: Targeted Identity Re‑Association Attacks accepted at NeurIPS 2025 Workshop</strong>
+    <p class="text">Our work "The Unseen Hand: Manipulating Model Fairness and SHAP with Targeted Identity Re‑Association Attacks" has been accepted into NeurIPS 2025 Workshop.</p>
+  </div>
 
-      <div class="blog-post" id="post-3">
-        <time>Jun 2025</time>
-        <strong>Best Paper Explanation Award — "On the Biology of a Large Language Model"</strong>
-        <p class="text">We have been awarded the Best Paper Explanation Award for our presentation "On the Biology of a Large Language Model".</p>
-      </div>
+  <div class="blog-post" id="post-3">
+    <time>Jun 2025</time>
+    <strong>Best Paper Explanation Award — "On the Biology of a Large Language Model"</strong>
+    <p class="text">We have been awarded the Best Paper Explanation Award for our presentation "On the Biology of a Large Language Model".</p>
+  </div>
 
-    </section>
+</section>
 
-    <footer>&copy; 2025 Sannaan</footer>
+<footer>&copy; 2025 Sannaan</footer>
+```
+
   </div>
 </body>
 </html>
-
-
-
-
