@@ -3,70 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sannaan - Blog</title>
+  <title>Sannaan — Blog</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512‑DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --ksu-purple: #512888;
-      --background-light: #f9f9f9;
-      --text-dark: #1a1a1a;
+      --primary-purple: #512888;
+      --bg-light: #f9f9f9;
+      --text-color: #1a1a1a;
       --muted: #555;
       --radius: 12px;
       --maxw: 900px;
       font-family: "Inter", sans-serif;
     }
-    body {
-      margin: 0;
-      background: var(--background-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-    .wrap {
-      max-width: var(--maxw);
-      margin: 20px auto;
-      padding: 20px;
-    }
-    header {
-      background: var(--ksu-purple);
-      padding: 20px;
-      border-radius: var(--radius);
-      color: white;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    header nav a {
-      color: white;
-      margin-right: 12px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    section {
-      margin-top: 20px;
-    }
-    .blog-post {
-      background: white;
-      padding: 20px;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-    .blog-post time {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 6px;
-    }
-    .blog-post .text {
-      margin: 0;
-    }
-    footer {
-      margin-top: 30px;
-      font-size: 13px;
-      color: var(--muted);
-      text-align: center;
-    }
+    body { margin:0; background:var(--bg-light); color:var(--text-color); line-height:1.6; }
+    .wrap { max-width: var(--maxw); margin: 20px auto; padding: 20px; }
+    header { background: var(--primary-purple); padding: 20px; border-radius: var(--radius); color: white; text-align: center; }
+    header h1 { margin: 0; font-size: 24px; }
+    header nav a { color: white; margin-right: 12px; text-decoration: none; font-weight: 600; }
+    section { margin-top:20px; }
+    .blog-post { background:white; padding:20px; border-radius:var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom:20px; }
+    .blog-post time { display:block; color:var(--muted); font-size:13px; margin-bottom:6px; }
+    .blog-post .text { margin:0; }
+    footer { margin-top:30px; font-size:13px; color:var(--muted); text-align:center; }
   </style>
 </head>
 <body>
@@ -77,46 +38,37 @@
     </header>
 
     <section id="posts">
-      <h2 style="color: var(--ksu-purple);">Blog Posts</h2>
+      <h2 style="color: var(--primary-purple);">Blog Posts</h2>
 
-      <!-- Blog posts go here -->
-      
       <div class="blog-post" id="post-0">
-        <time>Nov 2025</time>
+        <time>Nov 2025</time>
         <strong>Our TIRA paper upgraded to Oral at NeurIPS‑W 2025</strong>
-        <p class="text">We are pleased to announce that our TIRA paper has been upgraded to an Oral presentation at NeurIPS‑W 2025.</p>
+        <p class="text">Our TIRA paper got upgraded to an Oral at NeurIPS‑W 2025.</p>
       </div>
 
       <div class="blog-post" id="post-1">
-        <time>Sep 2025</time>
+        <time>Sep 2025</time>
         <strong>Training‑Time Explainability accepted at NeurIPS 2025 Workshop</strong>
-        <p class="text">Our collaboration with TU Dublin titled "Training‑Time Explainability for Multilingual Hate Speech Detection: Aligning Model Reasoning with Human Rationales" has been accepted into NeurIPS 2025 Workshop.</p>
+        <p class="text">Our collaboration with TU Dublin titled "Training‑Time Explainability for Multilingual Hate Speech Detection: Aligning Model Reasoning with Human Rationales" has been accepted into NeurIPS 2025 workshop.</p>
       </div>
 
       <div class="blog-post" id="post-2">
-        <time>Sep 2025</time>
+        <time>Sep 2025</time>
         <strong>The Unseen Hand: Targeted Identity Re‑Association Attacks accepted at NeurIPS 2025 Workshop</strong>
         <p class="text">Our work "The Unseen Hand: Manipulating Model Fairness and SHAP with Targeted Identity Re‑Association Attacks" has been accepted into NeurIPS 2025 Workshop.</p>
       </div>
 
       <div class="blog-post" id="post-3">
-        <time>Jun 2025</time>
+        <time>Jun 2025</time>
         <strong>Best Paper Explanation Award — "On the Biology of a Large Language Model"</strong>
-        <p class="text">We were awarded the Best Paper Explanation Award for our presentation "On the Biology of a Large Language Model".</p>
+        <p class="text">We have been awarded the Best Paper Explanation Award for our presentation "On the Biology of a Large Language Model".</p>
       </div>
-
-      <div class="blog-post" id="post-4">
-        <time> </time>
-        <strong></strong>
-        <p class="text"></p>
-      </div>
-      <!-- end of posts -->
 
     </section>
 
-    <footer>
-      &copy; 2025 Sannaan
-    </footer>
+    <footer>&copy; 2025 Sannaan</footer>
   </div>
 </body>
 </html>
+
+
