@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sannaan - Blog</title>
+<style>
+:root {
+  --ksu-purple:#512888; --ksu-green:#7ab800; --ksu-light:#f9f9f9;
+  --text-dark:#1a1a1a; --muted:#555; --radius:12px; --maxw:900px;
+  font-family:"Inter",sans-serif;
+}
+body{margin:0;background:var(--ksu-light);color:var(--text-dark);line-height:1.6;}
+.wrap{max-width:var(--maxw);margin:20px auto;padding:20px;}
+header{display:flex;gap:20px;align-items:center;background:linear-gradient(135deg,var(--ksu-green)10%,var(--ksu-purple)10%);padding:20px;border-radius:var(--radius);color:white;}
+header img{width:80px;height:80px;border-radius:var(--radius);border:3px solid white;}
+header .intro h1{margin:0;font-size:24px;}
+header .intro nav a{color:white;text-decoration:none;margin-right:12px;font-weight:600;}
+section{margin-top:20px;background:white;padding:20px;border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+section h2{color:var(--ksu-purple);}
+.blog-post{margin-bottom:20px;}
+.blog-post time{display:block;color:var(--muted);font-size:13px;margin-bottom:6px;}
+.blog-post .text{overflow:hidden;transition:max-height 0.3s ease;max-height:3em;}
+.blog-post.expanded .text{max-height:1000px;}
+.read-more{display:inline-block;margin-top:6px;color:var(--ksu-purple);cursor:pointer;font-weight:600;font-size:14px;}
+footer{margin-top:30px;font-size:13px;color:var(--muted);text-align:center;}
+@media(max-width:600px){header{flex-direction:column;text-align:center;}header img{width:60px;height:60px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="intro">
+    <h1>Sannaan — Blog</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </div>
+</header>
+
+<section id="posts">
+<h2>Blog Posts</h2>
+<div id="blogList">
+  <div class="muted">No posts yet. Check back soon!</div>
+</div>
+</section>
+
+<footer>
+&copy; 2025 Sannaan
+</footer>
+
+<script>
+// For future: dynamically load posts here once written
+function togglePost(idx){
+  const post=document.getElementById('post-'+idx);
+  post.classList.toggle('expanded');
+  const btn=post.querySelector('.read-more');
+  btn.textContent = post.classList.contains('expanded')?'Show Less':'Read More';
+}
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sannaan - Portfolio</title>
+<style>
+:root{
+  --ksu-purple:#512888;
+  --ksu-green:#7ab800;
+  --ksu-light:#f9f9f9;
+  --text-dark:#1a1a1a;
+  --muted:#555;
+  --radius:12px;
+  --maxw:980px;
+  font-family: "Inter", sans-serif;
+}
+body{margin:0;background:var(--ksu-light);color:var(--text-dark);line-height:1.6;}
+.wrap{max-width:var(--maxw);margin:32px auto;padding:28px;}
+header.hero{display:flex;align-items:center;gap:20px;background:linear-gradient(135deg,var(--ksu-green)10%,var(--ksu-purple)10%);padding:22px;border-radius:var(--radius);color:white;}
+header.hero img{width:140px;height:140px;border-radius:var(--radius);border:3px solid white;}
+header.hero h1{margin:0;font-size:26px;}
+header.hero nav a{color:white;text-decoration:none;margin-right:12px;font-weight:600;}
+.card{background:white;border-radius:var(--radius);padding:20px;box-shadow:0 6px 24px rgba(0,0,0,0.05);margin-top:20px;}
+.section-title{font-size:15px;font-weight:700;color:var(--ksu-purple);margin-bottom:12px;}
+.muted{color:var(--muted);font-size:14px;}
+.news-list .news-item{padding:12px;border-radius:var(--radius);border:1px solid rgba(0,0,0,0.05);margin-bottom:12px;}
+.news-item time{display:block;color:var(--muted);font-size:13px;margin-bottom:6px;}
+.news-item .title{font-weight:700;margin-bottom:4px;}
+.news-item .desc{font-size:14px;color:var(--text-dark);}
+footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <img src="SK.jpeg" alt="Sannaan">
+  <div>
+    <h1>Sannaan</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<section class="card about" id="about">
+  <div class="section-title">About Me</div>
+  <p>I am a graduate researcher in the <a href="http://adobservatory.com/lab/people" target="_blank">Data Science & Machine Learning Lab</a> under Muhammad U. S. Khan (<a href="https://sites.google.com/site/ushahidkhan/home" target="_blank">profile</a>) at <a href="https://nust.edu.pk/" target="_blank">NUST</a>, working at the intersection of trustworthy ML and multimodal AI. My research focuses on developing fair, robust, and interpretable large-scale learning systems suitable for real-world deployment.</p>
+  <p>Particularly interested in adaptive multimodal LLMs, privacy-preserving machine learning, and human-in-the-loop methodologies enabling ethical AI. My work explores how advanced multimodal techniques can reveal complex patterns in online environments, support public health insights, and enhance AI reliability in high-stakes domains.</p>
+  <p>Overall, my goal is to build machine learning frameworks that are accurate, scalable, equitable, transparent, and aligned with societal well-being.</p>
+  <p class="muted">Résumé/CV available on request.</p>
+</section>
+
+<section class="card" id="news">
+  <div class="section-title">News & Updates</div>
+  <div class="news-list" id="newsList">
+    <div class="muted">No updates yet. All news will appear here from your blog posts.</div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Sannaan
+</footer>
+
+<script>
+// Auto-load latest posts from blog.html (if any exist)
+// This uses a simple fetch and assumes blog.html is on the same domain
+async function loadBlogUpdates(){
+  try {
+    const res = await fetch('blog.html');
+    const text = await res.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'text/html');
+    const posts = doc.querySelectorAll('.blog-post');
+    const newsList = document.getElementById('newsList');
+    if(posts.length){
+      newsList.innerHTML = '';
+      posts.forEach((post,i)=>{
+        if(i>2) return; // show up to 3 latest
+        const title = post.querySelector('strong').innerText;
+        const date = post.querySelector('time').innerText;
+        const desc = post.querySelector('.text').innerText.split('.').slice(0,2).join('.') + '...';
+        const newsItem = document.createElement('div');
+        newsItem.className = 'news-item';
+        newsItem.innerHTML = `<time>${date}</time><div class="title">${title}</div><div class="desc">${desc}</div>`;
+        newsList.appendChild(newsItem);
+      });
+    }
+  } catch(e){
+    console.log('Could not load blog updates', e);
+  }
+}
+loadBlogUpdates();
+</script>
+
+</div>
+</body>
+</html>
+
+
