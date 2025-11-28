@@ -3,106 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sannaan - Portfolio</title>
+  <title>Sannaan — Portfolio</title>
   <meta name="description" content="Research portfolio: trustworthy ML & multimodal AI.">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512‑DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root{
-      --ksu-purple: #512888;
-      --background-light: #f9f9f9;
-      --text-dark: #1a1a1a;
+      --primary-purple: #512888;
+      --bg-light: #f9f9f9;
+      --text-color: #1a1a1a;
       --muted: #555;
       --radius: 12px;
       --maxw: 980px;
       font-family: "Inter", sans-serif;
     }
-    body {
-      margin: 0;
-      background: var(--background-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-    .wrap {
-      max-width: var(--maxw);
-      margin: 32px auto;
-      padding: 28px;
-    }
-    header.hero {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      background: var(--ksu-purple);
-      padding: 22px;
-      border-radius: var(--radius);
-      color: white;
-    }
-    header.hero img {
-      width: 140px;
-      height: 140px;
-      border-radius: var(--radius);
-      border: 3px solid white;
-      object-fit: cover;
-    }
-    header.hero h1 {
-      margin: 0;
-      font-size: 26px;
-    }
-    header.hero nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 12px;
-      font-weight: 600;
-    }
-    .card {
-      background: white;
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.05);
-      margin-top: 20px;
-    }
-    .section-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--ksu-purple);
-      margin-bottom: 12px;
-    }
-    .muted {
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .news-list .news-item {
-      padding: 12px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(0,0,0,0.05);
-      margin-bottom: 12px;
-      background: white;
-    }
-    .news-item time {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 6px;
-    }
-    .news-item .title {
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .news-item .desc {
-      font-size: 14px;
-      color: var(--text-dark);
-    }
-    footer {
-      margin-top: 22px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-    }
+    body { margin:0; background:var(--bg-light); color:var(--text-color); line-height:1.6; }
+    .wrap { max-width:var(--maxw); margin:32px auto; padding:28px; }
+    header.hero { display:flex; align-items:center; gap:20px; background:var(--primary-purple); padding:22px; border-radius:var(--radius); color:white; }
+    header.hero img { width:140px; height:140px; border-radius:var(--radius); border:3px solid white; object-fit:cover; }
+    header.hero h1 { margin:0; font-size:26px; }
+    header.hero nav a { color:white; text-decoration:none; margin-right:12px; font-weight:600; }
+    .social-icons { margin-top:14px; }
+    .social-icons a { color: white; margin-right: 14px; text-decoration: none; }
+    .card { background:white; border-radius:var(--radius); padding:20px; box-shadow: 0 6px 24px rgba(0,0,0,0.05); margin-top:20px; }
+    .section-title { font-size:15px; font-weight:700; color:var(--primary-purple); margin-bottom:12px; }
+    .muted { color: var(--muted); font-size:14px; }
+    .news-list .news-item { padding:12px; border-radius:var(--radius); border:1px solid rgba(0,0,0,0.05); margin-bottom:12px; background:white; }
+    .news-item time { display:block; color:var(--muted); font-size:13px; margin-bottom:6px; }
+    .news-item .title { font-weight:700; margin-bottom:4px; }
+    .news-item .desc { font-size:14px; color:var(--text-color); }
+    footer { margin-top:22px; color:var(--muted); font-size:13px; text-align:center; }
   </style>
 </head>
 <body>
   <div class="wrap">
-
     <header class="hero">
-      <img src="SK.jpeg" alt="Sannaan">
+      <img src="SK.jpeg" alt="Sannaan portrait">
       <div>
         <h1>Sannaan</h1>
         <nav>
@@ -110,13 +49,18 @@
           <a href="#news">News</a>
           <a href="blog.html">Blog</a>
         </nav>
+        <div class="social-icons">
+          <a href="https://github.com/sk-zone" target="_blank" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
+          <a href="mailto:mkhan.msse24sines@student.nust.edu.pk" title="Email"><i class="fas fa-envelope fa-lg"></i></a>
+          <a href="YOUR_GOOGLE_SCHOLAR_URL" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap fa-lg"></i></a>
+        </div>
       </div>
     </header>
 
     <section class="card about" id="about">
       <div class="section-title">About Me</div>
-      <p>I am a graduate researcher in the <a href="http://adobservatory.com/lab/people" target="_blank">Data Science & Machine Learning Lab</a> under Muhammad U. S. Khan (advisor) at NUST, working at the intersection of trustworthy ML and multimodal AI. My research focuses on developing fair, robust, and interpretable large‑scale learning systems suitable for real‑world deployment.</p>
-      <p>Particularly interested in adaptive multimodal LLMs, privacy‑preserving machine learning, and human‑in‑the‑loop methodologies enabling ethical AI. My work explores how advanced multimodal techniques can reveal complex patterns in online environments, support public health insights, and enhance AI reliability in high‑stakes domains.</p>
+      <p>I am a graduate researcher in the <a href="http://adobservatory.com/lab/people" target="_blank">Data Science & Machine Learning Lab</a> under <a href="https://sites.google.com/site/ushahidkhan/home" target="_blank">Muhammad U. S. Khan</a> at <a href="https://nust.edu.pk/" target="_blank">NUST</a>, working at the intersection of trustworthy ML and multimodal AI. My research focuses on developing fair, robust, and interpretable large‑scale learning systems suitable for real‑world deployment.</p>
+      <p>Particularly interested in adaptive multimodal LLMs, human‑in‑the‑loop methodologies and privacy‑preserving machine learning.</p>
       <p>Overall, my goal is to build machine learning frameworks that are accurate, scalable, equitable, transparent, and aligned with societal well‑being.</p>
       <p class="muted">Résumé/CV available on request.</p>
     </section>
@@ -128,44 +72,36 @@
       </div>
     </section>
 
-    <footer>
-      &copy; 2025 Sannaan
-    </footer>
-
+    <footer>&copy; 2025 Sannaan</footer>
   </div>
 
   <script>
-  // Auto‑load latest posts from blog.html
-  async function loadBlogUpdates(){
-    try {
-      const res = await fetch('blog.html');
-      const text = await res.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(text, 'text/html');
-      const posts = Array.from(doc.querySelectorAll('.blog-post'));
-      const newsList = document.getElementById('newsList');
-      if (posts.length) {
-        newsList.innerHTML = '';
-        posts.slice(0, 5).forEach(post => {
-          const title = post.querySelector('strong').innerText;
-          const date = post.querySelector('time').innerText;
-          const desc = post.querySelector('.text').innerText.split('.').slice(0,2).join('.') + '...';
-          const newsItem = document.createElement('div');
-          newsItem.className = 'news-item';
-          newsItem.innerHTML = `<time>${date}</time><div class="title">${title}</div><div class="desc">${desc}</div>`;
-          newsList.appendChild(newsItem);
-        });
+    async function loadBlogUpdates(){
+      try {
+        const res = await fetch('blog.html');
+        const text = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const posts = Array.from(doc.querySelectorAll('.blog-post'));
+        const newsList = document.getElementById('newsList');
+        if (posts.length) {
+          newsList.innerHTML = '';
+          posts.slice(0, 5).forEach(post => {
+            const title = post.querySelector('strong').innerText;
+            const date = post.querySelector('time').innerText;
+            const desc = post.querySelector('.text').innerText.split('.').slice(0,2).join('.') + '...';
+            const newsItem = document.createElement('div');
+            newsItem.className = 'news-item';
+            newsItem.innerHTML = `<time>${date}</time><div class="title">${title}</div><div class="desc">${desc}</div>`;
+            newsList.appendChild(newsItem);
+          });
+        }
+      } catch(e) {
+        console.log('Could not load blog updates', e);
       }
-    } catch(e){
-      console.log('Could not load blog updates', e);
     }
-  }
-  loadBlogUpdates();
+    loadBlogUpdates();
   </script>
 
 </body>
 </html>
-
-
-
-
