@@ -1,63 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sannaan - Blog</title>
-<style>
-:root {
-  --ksu-purple:#512888; --ksu-green:#7ab800; --ksu-light:#f9f9f9;
-  --text-dark:#1a1a1a; --muted:#555; --radius:12px; --maxw:900px;
-  font-family:"Inter",sans-serif;
-}
-body{margin:0;background:var(--ksu-light);color:var(--text-dark);line-height:1.6;}
-.wrap{max-width:var(--maxw);margin:20px auto;padding:20px;}
-header{display:flex;gap:20px;align-items:center;background:linear-gradient(135deg,var(--ksu-green)10%,var(--ksu-purple)10%);padding:20px;border-radius:var(--radius);color:white;}
-header img{width:80px;height:80px;border-radius:var(--radius);border:3px solid white;}
-header .intro h1{margin:0;font-size:24px;}
-header .intro nav a{color:white;text-decoration:none;margin-right:12px;font-weight:600;}
-section{margin-top:20px;background:white;padding:20px;border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,0.05);}
-section h2{color:var(--ksu-purple);}
-.blog-post{margin-bottom:20px;}
-.blog-post time{display:block;color:var(--muted);font-size:13px;margin-bottom:6px;}
-.blog-post .text{overflow:hidden;transition:max-height 0.3s ease;max-height:3em;}
-.blog-post.expanded .text{max-height:1000px;}
-.read-more{display:inline-block;margin-top:6px;color:var(--ksu-purple);cursor:pointer;font-weight:600;font-size:14px;}
-footer{margin-top:30px;font-size:13px;color:var(--muted);text-align:center;}
-@media(max-width:600px){header{flex-direction:column;text-align:center;}header img{width:60px;height:60px;}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sannaan - Blog</title>
+  <style>
+    :root {
+      --ksu-purple: #512888;
+      --background-light: #f9f9f9;
+      --text-dark: #1a1a1a;
+      --muted: #555;
+      --radius: 12px;
+      --maxw: 900px;
+      font-family: "Inter", sans-serif;
+    }
+    body {
+      margin: 0;
+      background: var(--background-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: var(--maxw);
+      margin: 20px auto;
+      padding: 20px;
+    }
+    header {
+      background: var(--ksu-purple);
+      padding: 20px;
+      border-radius: var(--radius);
+      color: white;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    header nav a {
+      color: white;
+      margin-right: 12px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    section {
+      margin-top: 20px;
+    }
+    .blog-post {
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    .blog-post time {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .blog-post .text {
+      margin: 0;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-<header>
-  <div class="intro">
-    <h1>Sannaan — Blog</h1>
-    <nav>
-      <a href="index.html">Home</a>
-    </nav>
+  <div class="wrap">
+    <header>
+      <h1>Sannaan — Blog</h1>
+      <nav><a href="index.html">Home</a></nav>
+    </header>
+
+    <section id="posts">
+      <h2 style="color: var(--ksu-purple);">Blog Posts</h2>
+
+      <!-- Blog posts go here -->
+      
+      <div class="blog-post" id="post-0">
+        <time>Nov 2025</time>
+        <strong>Our TIRA paper upgraded to Oral at NeurIPS‑W 2025</strong>
+        <p class="text">We are pleased to announce that our TIRA paper has been upgraded to an Oral presentation at NeurIPS‑W 2025.</p>
+      </div>
+
+      <div class="blog-post" id="post-1">
+        <time>Sep 2025</time>
+        <strong>Training‑Time Explainability accepted at NeurIPS 2025 Workshop</strong>
+        <p class="text">Our collaboration with TU Dublin titled "Training‑Time Explainability for Multilingual Hate Speech Detection: Aligning Model Reasoning with Human Rationales" has been accepted into NeurIPS 2025 Workshop.</p>
+      </div>
+
+      <div class="blog-post" id="post-2">
+        <time>Sep 2025</time>
+        <strong>The Unseen Hand: Targeted Identity Re‑Association Attacks accepted at NeurIPS 2025 Workshop</strong>
+        <p class="text">Our work "The Unseen Hand: Manipulating Model Fairness and SHAP with Targeted Identity Re‑Association Attacks" has been accepted into NeurIPS 2025 Workshop.</p>
+      </div>
+
+      <div class="blog-post" id="post-3">
+        <time>Jun 2025</time>
+        <strong>Best Paper Explanation Award — "On the Biology of a Large Language Model"</strong>
+        <p class="text">We were awarded the Best Paper Explanation Award for our presentation "On the Biology of a Large Language Model".</p>
+      </div>
+
+      <div class="blog-post" id="post-4">
+        <time> </time>
+        <strong></strong>
+        <p class="text"></p>
+      </div>
+      <!-- end of posts -->
+
+    </section>
+
+    <footer>
+      &copy; 2025 Sannaan
+    </footer>
   </div>
-</header>
-
-<section id="posts">
-<h2>Blog Posts</h2>
-<div id="blogList">
-  <div class="muted">No posts yet. Check back soon!</div>
-</div>
-</section>
-
-<footer>
-&copy; 2025 Sannaan
-</footer>
-
-<script>
-// For future: dynamically load posts here once written
-function togglePost(idx){
-  const post=document.getElementById('post-'+idx);
-  post.classList.toggle('expanded');
-  const btn=post.querySelector('.read-more');
-  btn.textContent = post.classList.contains('expanded')?'Show Less':'Read More';
-}
-</script>
-</div>
 </body>
 </html>
