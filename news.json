@@ -1,12 +1,11 @@
 [
   {
     "date": "Nov 2025",
-    "title": "TIRA paper upgraded to Oral at NeurIPS W 2025",
-    "text": "Our TIRA paper has been upgraded to an Oral at NeurIPS-W 2025."
-  },
+    "title": "TIRA paper upgraded to Oral at NeurIPS-W 2025",
+    "text": "Our paper 'The Unseen Hand Manipulating Model Fairness and SHAP with Targeted Identity Re-Association Attacks' has been upgraded to an Oral. The work has also been selected for presentation at the AE Joint Poster Session at NeurIPS."  },
   {
     "date": "Sep 2025",
-    "title": "The Unseen Hand Targeted Identity Re Association Attacks accepted at NeurIPS-W 2025",
+    "title": "The Unseen Hand: Targeted Identity Re-Association Attacks accepted at NeurIPS-W 2025",
     "text": "Our work 'The Unseen Hand Manipulating Model Fairness and SHAP with Targeted Identity Re-Association Attacks' has been accepted into NeurIPS 2025 Workshop."
   },
   {
@@ -20,5 +19,6 @@
     "text": "We have been awarded the Best Paper Explanation Award for our presentation Anthropic's 'On the Biology of a Large Language Model'."
   }
 ]
+
 
 
