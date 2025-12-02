@@ -159,84 +159,116 @@
             <i class="fab fa-github"></i>
           </a>
 
-          <!-- Email (copy-to-clipboard) -->
+          <!-- Email -->
           <a href="#" class="email-copy" data-email="mkhan.msse24sines@student.nust.edu.pk" title="Copy email">
             <i class="fas fa-envelope"></i>
           </a>
 
-          <!-- Google Scholar 
-          <a href="YOUR_GOOGLE_SCHOLAR_URL" target="_blank" title="Google Scholar">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/sannaan/" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+
+          <!-- Google Scholar -->
+          <a href="https://scholar.google.com/citations?user=6-qXVNoAAAAJ&hl=en" target="_blank" title="Google Scholar">
             <i class="fas fa-graduation-cap"></i>
-          </a> -->
+          </a>
 
         </div>
       </div>
-
     </header>
 
     <section class="card about" id="about">
-      <div class="section-title">About Me</div>
-      <p>I am a graduate researcher in the <a href="http://adobservatory.com/lab/people" target="_blank">Data Science & Machine Learning Lab</a> under <a href="https://sites.google.com/site/ushahidkhan/home" target="_blank">Muhammad U. S. Khan</a> at <a href="https://nust.edu.pk/" target="_blank">NUST</a>, working at the intersection of trustworthy ML and multimodal AI. My research focuses on developing fair, robust, and interpretable large-scale learning systems suitable for real-world deployment.</p>
-      <p>I am particularly interested in adaptive multimodal LLMs, human-in-the-loop methodologies and privacy-preserving machine learning.</p>
-      <p>Overall, my goal is to build machine learning frameworks that are accurate, scalable, equitable, transparent, and aligned with societal well-being.</p>
-      <p class="muted">Résumé/CV available on request.</p>
-    </section>
+  <div class="section-title">About Me</div>
+  <p>I am a graduate researcher in the <a href="http://adobservatory.com/lab/people" target="_blank">Data Science & Machine Learning Lab</a> under <a href="https://sites.google.com/site/ushahidkhan/home" target="_blank">Muhammad U. S. Khan</a> at <a href="https://nust.edu.pk/" target="_blank">NUST</a>. 
+    My research focuses on developing large-scale learning systems suitable for real-world deployment. 
+    I am particularly interested in adaptive multimodal LLMs, human-in-the-loop methodologies, and privacy-preserving machine learning. 
+    My goal is to build machine learning frameworks that are accurate, scalable, equitable, robust, and aligned with societal well-being.</p>
+</section>
 
     <section class="card" id="news">
-      <div class="section-title">News & Updates</div>
+      <div class="section-title">News and Updates</div>
       <div class="news-list" id="newsList">
-        <div class="muted">No updates yet. All news will appear here from your blog posts.</div>
+        <div class="muted">Loading news...</div>
       </div>
     </section>
 
     <footer>&copy; 2025 Sannaan</footer>
   </div>
 
-  <script>
-    // Copy email functionality
-    document.querySelector('.email-copy').addEventListener('click', (e) => {
-      e.preventDefault();
-      const email = e.currentTarget.dataset.email;
 
-      navigator.clipboard.writeText(email)
-        .catch(() => console.log('Could not copy email.'));
+<!-- Scripts -->
+<script>
 
+function trimWords(text, limit = 50) {
+  const words = text.split(/\s+/);
+  if (words.length <= limit) return text;
+  return words.slice(0, limit).join(" ") + "...";
+}
+
+// Load news.json and blog updates
+async function loadNews() {
+  const newsList = document.getElementById('newsList');
+  newsList.innerHTML = "";
+
+  let newsData = [];
+
+  try {
+    const res = await fetch('news.json');
+    newsData = await res.json();
+  } catch (e) {
+    console.log("Could not load news.json");
+  }
+
+  try {
+    const res = await fetch('blog.html');
+    const text = await res.text();
+    const doc = new DOMParser().parseFromString(text, 'text/html');
+    const posts = Array.from(doc.querySelectorAll('.blog-post'));
+
+    posts.forEach(post => {
+      const title = post.querySelector('strong').innerText;
+      const date = post.querySelector('time').innerText;
+      const desc = post.querySelector('.text').innerText;
+
+      newsData.push({
+        date: date,
+        title: "New Blog Posted: " + title,
+        text: trimWords(desc, 50)
+      });
     });
 
-    // Auto-load latest posts from blog.html
-    async function loadBlogUpdates() {
-      try {
-        const res = await fetch('blog.html');
-        const text = await res.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const posts = Array.from(doc.querySelectorAll('.blog-post'));
-        const newsList = document.getElementById('newsList');
+  } catch (e) {
+    console.log("Could not load blog announcements");
+  }
 
-        if (posts.length) {
-          newsList.innerHTML = '';
-          posts.slice(0, 5).forEach(post => {
-            const title = post.querySelector('strong').innerText;
-            const date = post.querySelector('time').innerText;
-            const desc = post.querySelector('.text').innerText.split('.').slice(0, 2).join('.') + '...';
-            const newsItem = document.createElement('div');
-            newsItem.className = 'news-item';
-            newsItem.innerHTML =
-              `<time>${date}</time>
-               <div class="title">${title}</div>
-               <div class="desc">${desc}</div>`;
-            newsList.appendChild(newsItem);
-          });
-        }
-      } catch (e) {
-        console.log('Could not load blog updates', e);
-      }
-    }
+  newsData.reverse();
 
-    loadBlogUpdates();
-  </script>
+  newsData.slice(0, 5).forEach(item => {
+    const div = document.createElement('div');
+    div.className = "news-item";
+    div.innerHTML = `
+      <time>${item.date}</time>
+      <div class="title">${item.title}</div>
+      <div class="desc">${item.text}</div>
+    `;
+    newsList.appendChild(div);
+  });
+}
+
+loadNews();
+
+document.querySelector('.email-copy').addEventListener('click', (e) => {
+  e.preventDefault();
+  const email = e.currentTarget.dataset.email;
+  navigator.clipboard.writeText(email);
+});
+
+</script>
 
 </body>
 </html>
+
+
 
 
