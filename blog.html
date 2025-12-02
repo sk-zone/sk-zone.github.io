@@ -17,67 +17,22 @@
       --maxw: 900px;
       font-family: "Inter", sans-serif;
     }
-    body {
-      margin: 0;
-      background: var(--bg-light);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-    .wrap {
-      max-width: var(--maxw);
-      margin: 20px auto;
-      padding: 20px;
-    }
-    header {
-      background: var(--primary-purple);
-      padding: 20px;
-      border-radius: var(--radius);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    header h1 {
-      margin: 0 0 10px 0;
-      font-size: 24px;
-    }
-    header nav {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-    }
-    header nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    section {
-      margin-top: 20px;
-    }
-    .blog-post {
-      background: white;
-      padding: 20px;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-    .blog-post time {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 6px;
-    }
-    .blog-post .text {
-      margin: 0;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    footer {
-      margin-top: 30px;
-      font-size: 13px;
-      color: var(--muted);
-      text-align: center;
-    }
+    body { margin: 0; background: var(--bg-light); color: var(--text-color); line-height: 1.6; }
+    .wrap { max-width: var(--maxw); margin: 20px auto; padding: 20px; }
+    header { background: var(--primary-purple); padding: 20px; border-radius: var(--radius); color: white; display: flex; flex-direction: column; align-items: center; }
+    header h1 { margin: 0 0 10px 0; font-size: 24px; }
+    header nav { display: flex; gap: 12px; justify-content: center; }
+    header nav a { color: white; text-decoration: none; font-weight: 600; }
+    section { margin-top: 20px; }
+    
+    .blog-post { background: white; padding: 20px; border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 20px; }
+    .blog-post time { display: block; color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+    .blog-post .text { margin: 0; text-align: justify; text-justify: inter-word; }
+    
+    /* Show More Button Style */
+    .read-more-btn { color: var(--primary-purple); font-weight: 700; cursor: pointer; font-size: 14px; text-decoration: underline; margin-left: 5px; }
+    
+    footer { margin-top: 30px; font-size: 13px; color: var(--muted); text-align: center; }
   </style>
 </head>
 <body>
@@ -87,37 +42,54 @@
       <nav><a href="index.html">Home</a></nav>
     </header>
 
-<section id="posts">
-  <h2 style="color: var(--primary-purple);">Blog Posts</h2>
+    <section id="posts">
+      <h2 style="color: var(--primary-purple);">Blog Posts</h2>
+      
+      <p class="muted" style="text-align:center; color: #777;">No blog posts available yet.</p>
 
-  <div class="blog-post" id="post-0">
-    <time>Nov 2025</time>
-    <strong>Our TIRA paper upgraded to Oral at NeurIPS W 2025</strong>
-    <p class="text">Our TIRA paper got upgraded to an Oral at NeurIPS-W 2025.</p>
+    </section>
+
+    <footer>&copy; 2025 Sannaan</footer>
   </div>
 
-  <div class="blog-post" id="post-1">
-    <time>Sep 2025</time>
-    <strong>Training Time Explainability accepted at NeurIPS 2025 Workshop</strong>
-    <p class="text">Our collaboration with TU Dublin titled 'Training-Time Explainability for Multilingual Hate Speech Detection: Aligning Model Reasoning with Human Rationales' has been accepted into NeurIPS 2025 Workshop.</p>
-  </div>
+  <script>
+    // Logic: Truncate text > 100 words and add Show More/Less
+    document.addEventListener("DOMContentLoaded", function() {
+      const posts = document.querySelectorAll('.blog-post .text');
+      
+      posts.forEach(p => {
+        const fullText = p.innerText;
+        const words = fullText.split(/\s+/);
+        
+        if (words.length > 100) {
+          const visiblePart = words.slice(0, 100).join(" ");
+          const hiddenPart = words.slice(100).join(" ");
+          
+          p.innerHTML = `
+            ${visiblePart}
+            <span class="dots">...</span>
+            <span class="more-content" style="display: none;"> ${hiddenPart}</span>
+            <a class="read-more-btn">Show more</a>
+          `;
 
-  <div class="blog-post" id="post-2">
-    <time>Sep 2025</time>
-    <strong>The Unseen Hand Targeted Identity Re Association Attacks accepted at NeurIPS 2025 Workshop</strong>
-    <p class="text">Our work 'The Unseen Hand Manipulating Model Fairness and SHAP with Targeted Identity Re-Association Attacks' has been accepted into NeurIPS 2025 Workshop.</p>
-  </div>
+          const btn = p.querySelector('.read-more-btn');
+          const moreContent = p.querySelector('.more-content');
+          const dots = p.querySelector('.dots');
 
-  <div class="blog-post" id="post-3">
-    <time>Jun 2025</time>
-    <strong>Best Paper Explanation Award</strong>
-    <p class="text">We have been awarded the Best Paper Explanation Award for our presentation Anthropic's 'On the Biology of a Large Language Model'.</p>
-  </div>
-
-</section>
-
-<footer>&copy; 2025 Sannaan</footer>
-
-  </div>
+          btn.addEventListener('click', function() {
+            if (moreContent.style.display === "none") {
+              moreContent.style.display = "inline";
+              dots.style.display = "none";
+              btn.innerText = "Show less";
+            } else {
+              moreContent.style.display = "none";
+              dots.style.display = "inline";
+              btn.innerText = "Show more";
+            }
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
